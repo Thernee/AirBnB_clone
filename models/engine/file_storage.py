@@ -17,8 +17,19 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
+    def all(self, class_name=None):
         """Returns the dictionary __objects"""
+        if class_name is not None:
+            if isinstance(class_name, str):
+                try:
+                    cls = eval(class_name)
+                except NameError:
+                    raise ValueError("Invalid class name")
+
+            filtered_objs = {k: v for k, v in FileStorage.__objects.items()
+                             if isinstance(v, cls)}
+            return filtered_objs
+
         return FileStorage.__objects
 
     def new(self, obj):
