@@ -1,9 +1,49 @@
-# Airbnb Clone Project
 
-Welcome to the Airbnb Clone project.
+# # 0x00. AirBnB clone - The console
 
-This is a Python-based project where we aim to create a simplified version of the popular Airbnb platform. The project is in its early stages, and this README wil be updated as the project progresses.
+This is a collaborative project with **Abubakar Sani** for ALX Software Engineering program, Cohort 13, August of 2023.
 
-This stage involves writing a command interpreter to manage the AirBnB clone objects
+This is the first step towards building a full web application: the AirBnB clone. This project is a command-line project. Other following projects will include: HTML/CSS templating, database storage, API, and front-end integration.
 
-## Getting Started
+### Execution
+
+> Interactive mode:
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+
+```
+
+> Non-interactive mode:
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+```
