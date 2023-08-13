@@ -221,6 +221,54 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def default(self, line):
+        """Default behavior for console when input is invalid"""
+        cmd_dict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+
+        if '.' in line:
+            tokens = line.split(".")
+            if len(tokens) == 2:
+                cmd_args = tokens[1]
+                if '(' in cmd_args and ')' in cmd_args:
+                    command, arguments = cmd_args.split('(', 1)
+                    arguments = arguments.rstrip(')')
+                    if command in cmd_dict:
+                        call = "{} {}".format(tokens[0], arguments)
+                        return cmd_dict[command](call)
+                    else:
+                        print("*** Unknown syntax: {}".format(line))
+                else:
+                    print("*** Unknown syntax: {}".format(line))
+            else:
+                print("*** Unknown syntax: {}".format(line))
+        else:
+            print("*** Unknown syntax: {}".format(line))
+        return False
+
+    def do_count(self, line):
+        """Retrieve the number of instances of a class"""
+        tokens = line.split()
+        objects = storage.all()
+
+        if len(tokens) == 0:
+            print("** class name missing **")
+            return
+        elif tokens[0] not in classes:
+            print("** class doesn't exist **")
+            return
+        else:
+            count = 0
+            for obj in objects.values():
+                if obj.__class__.__name__ == tokens[0]:
+                    count += 1
+            print(count)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
