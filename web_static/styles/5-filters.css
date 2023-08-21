@@ -2,12 +2,12 @@
 .filters {
     margin-block: 30px;
     background-color: white;
-    height: 70px;
+    height: 100%;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .search-btn {
@@ -25,4 +25,23 @@
 
 .search-btn:hover {
     opacity: 0.9;
+}
+
+.amenities,
+.locations {
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #DDDDDD;
+    margin: 0 auto;
+}
+
+.locations__title,
+.amenities__title {
+    font-weight: 600;
+}
+
+.locations__subtitle,
+.amenities__subtitle {
+    font-weight: 400;
+    font-size: 14px;
 }
